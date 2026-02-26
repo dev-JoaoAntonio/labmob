@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     try {
         await transporter.sendMail({
             from: process.env.SMTP_USER,
-            to: 'shifu7277@gmail.com.br',
+            to: 'suporte@catalucca.com.br',
             subject: `🚨 Novo Estudo de Viabilidade: ${Orgao}`,
             html: `
                 <div style="font-family: sans-serif; color: #333;">
