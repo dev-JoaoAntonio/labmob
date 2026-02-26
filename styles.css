@@ -746,3 +746,7 @@ details[open] summary svg {
     color: var(--white) !important;
   }
 }
+
+#btn-submit{
+  font-family: var(--font-body);
+}

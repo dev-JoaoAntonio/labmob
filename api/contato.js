@@ -64,7 +64,7 @@ export default async function handler(req, res) {
 
                         <div style="background: #f9fafb; padding: 20px; text-align: center; color: #999; font-size: 12px;">
                             Este é um e-mail gerado automaticamente pela infraestrutura Catalucca.<br>
-                            © 2026 LabMob América do Sul.
+                            © LabMob América do Sul.
                         </div>
                     </div>
                 </div>
