@@ -192,12 +192,14 @@
                     <h3 style="margin-bottom: 1rem;">Fale com um Especialista</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Nossa equipe técnica auxilia gestores e secretários no dimensionamento da infraestrutura ideal para o seu município.</p>
                     
-                    <form onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso. Entraremos em contato!');" style="display: flex; flex-direction: column; gap: 1rem;">
-                        <input type="text" placeholder="Nome Completo" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
-                        <input type="text" placeholder="Órgão / Prefeitura / Secretaria" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
-                        <input type="email" placeholder="E-mail Institucional" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
-                        <input type="tel" placeholder="Telefone / WhatsApp" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
-                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Solicitar Estudo de Viabilidade</button>
+                    <form id="form-viabilidade" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" name="Nome" placeholder="Nome Completo" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
+                        <input type="text" name="Orgao" placeholder="Órgão / Prefeitura / Secretaria" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
+                        <input type="email" name="Email" placeholder="E-mail Institucional" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
+                        <input type="tel" name="Telefone" placeholder="Telefone / WhatsApp" required style="padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;">
+                        
+                        <button type="submit" id="btn-submit" class="btn btn-primary" style="margin-top: 0.5rem;">Solicitar Estudo de Viabilidade</button>
+                        <p id="form-msg" style="display: none; text-align: center; font-weight: 600; margin-top: 1rem; font-size: 0.9rem;"></p>
                     </form>
                 </div>
             </div>
@@ -223,10 +225,14 @@
 
                 <p class="footer-legal-text">LABMOB™ é uma infraestrutura científica móvel licenciada sob o modelo SIaaS. Os sistemas operam sob regimes de uso educacional, observacional e técnico. Não possuem finalidade diagnóstica clínica humana. | RUO (Research Use Only)</p>
                 <p class="footer-legal-text" style="margin-top: 1rem;">© 2026 LabMob. Todos os direitos reservados.</p>
+<p class="footer-legal-text" style="margin-top: 0.5rem;">
+                    Contato Técnico e Comercial: <a href="mailto:suporte@catalucca.com.br" style="color: var(--accent); text-decoration: none; font-weight: 600;">suporte@catalucca.com.br</a>
+                </p>
             </div>
         </div>
     </footer>
 
     <script type="module" src="./script.js"></script>
+    <script type="module" src="./setor-publico.js"></script>
 </body>
 </html>
