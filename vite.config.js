@@ -11,7 +11,9 @@ export default defineConfig({
         setorPrivado: resolve(__dirname, 'setor-privado.html'),
         adocao: resolve(__dirname, 'adocao-cientifica.html'),
         parceiros: resolve(__dirname, 'parceiros.html'),
-        termos: resolve(__dirname, 'termos-de-licenciamento.html')
+        termos: resolve(__dirname, 'termos-de-licenciamento.html'),
+        politicas: resolve(__dirname, 'politica-de-privacidade.html')
+        
       }
     }
   }
