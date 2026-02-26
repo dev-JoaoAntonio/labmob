@@ -61,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navContainer = document.querySelector('.nav-container');
     const navLinks = document.querySelector('.nav-links');
     
-    const desktopBtn = navContainer ? navContainer.querySelector('.btn-primary') : null;
-
     if (navContainer && navLinks) {
         navContainer.insertAdjacentHTML('beforeend', `
             <button class="mobile-menu-btn" aria-label="Abrir menu">
@@ -74,14 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
         `);
 
-        if (desktopBtn) {
-            desktopBtn.classList.add('btn-desktop-only');
-            
-            const mobileBtn = desktopBtn.cloneNode(true);
-            mobileBtn.classList.remove('btn-desktop-only');
-            mobileBtn.classList.add('btn-mobile-only');
-            mobileBtn.style.marginTop = '1.5rem';
-            navLinks.appendChild(mobileBtn);
+        const actionButtons = navContainer.querySelectorAll('.header-actions .btn');
+        
+        if (actionButtons.length > 0) {
+            actionButtons.forEach(btn => {
+                btn.classList.add('btn-desktop-only');
+                
+                const mobileBtn = btn.cloneNode(true);
+                mobileBtn.classList.remove('btn-desktop-only');
+                mobileBtn.classList.add('btn-mobile-only');
+                mobileBtn.style.marginTop = btn.classList.contains('btn-primary') ? '1rem' : '2rem';
+                navLinks.appendChild(mobileBtn);
+            });
         }
 
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const links = navLinks.querySelectorAll('a');
+        const links = navLinks.querySelectorAll('a:not(.btn)');
         links.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
