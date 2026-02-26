@@ -225,6 +225,13 @@ img {
   flex-wrap: wrap;
 }
 
+.hero-actions span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
 .hero-checks {
   display: flex;
   gap: 1.5rem;

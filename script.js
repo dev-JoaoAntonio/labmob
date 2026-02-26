@@ -108,3 +108,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnMicro = document.getElementById('btn-micro');
+    const btnMacro = document.getElementById('btn-macro');
+    const vidMicro = document.getElementById('vid-micro');
+    const vidMacro = document.getElementById('vid-macro');
+
+    if (btnMicro && btnMacro && vidMicro && vidMacro) {
+        btnMicro.addEventListener('click', () => {
+            btnMicro.className = 'btn btn-primary';
+            btnMicro.style.background = '';
+            
+            btnMacro.className = 'btn btn-outline';
+            btnMacro.style.background = 'var(--white)';
+            
+            vidMicro.style.opacity = '1';
+            vidMicro.style.zIndex = '2';
+            vidMacro.style.opacity = '0';
+            vidMacro.style.zIndex = '1';
+        });
+
+        btnMacro.addEventListener('click', () => {
+            btnMacro.className = 'btn btn-primary';
+            btnMacro.style.background = '';
+            
+            btnMicro.className = 'btn btn-outline';
+            btnMicro.style.background = 'var(--white)';
+            
+            vidMacro.style.opacity = '1';
+            vidMacro.style.zIndex = '2';
+            vidMicro.style.opacity = '0';
+            vidMicro.style.zIndex = '1';
+        });
+    }
+});
