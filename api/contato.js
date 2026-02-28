@@ -5,7 +5,15 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método não permitido' });
     }
 
-    const { Nome, Orgao, Email, Telefone } = req.body;
+    const { Nome, Orgao, Email, Telefone, _botcheck } = req.body;
+
+    if (_botcheck) {
+        return res.status(200).json({ message: 'E-mail enviado com sucesso!' });
+    }
+
+    if (Orgao.includes('@')) {
+        return res.status(400).json({ error: 'Por favor, insira o nome do órgão corretamente.' });
+    }
 
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
