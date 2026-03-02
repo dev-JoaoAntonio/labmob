@@ -110,3 +110,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Lógica Segura de Checkout Stripe
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutButtons = document.querySelectorAll('.btn-checkout');
+
+    checkoutButtons.forEach(button => {
+        button.addEventListener('click', async function() {
+            const planoSelecionado = this.getAttribute('data-plano');
+            const textoOriginal = this.innerText;
+            
+            this.innerText = 'Processando...';
+            this.disabled = true;
+            this.style.opacity = '0.7';
+
+            try {
+                const response = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ planoSelecionado })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.url) {
+                    window.location.href = data.url; 
+                } else {
+                    alert('Erro: ' + (data.error || 'Falha ao iniciar checkout.'));
+                    this.innerText = textoOriginal;
+                    this.disabled = false;
+                    this.style.opacity = '1';
+                }
+            } catch (error) {
+                console.error('Erro de rede:', error);
+                alert('Erro de conexão ao comunicar com o servidor de pagamentos.');
+                this.innerText = textoOriginal;
+                this.disabled = false;
+                this.style.opacity = '1';
+            }
+        });
+    });
+});

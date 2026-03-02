@@ -43,8 +43,7 @@
                 <a href="/adocao-cientifica" class="nav-link">Adote Ciência</a>
                 <a href="/parceiros" class="nav-link">Parceiros</a>
             </nav>
-            <a href="https://billing.stripe.com/p/login/28E8wRc1a8zz4NAbtWcV200" target="_blank" class="btn btn-outline"
-                style="padding: 8px 20px; font-size: 0.9rem;">Gerenciar Assinatura</a>
+
             <a href="#planos" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Ativar Licença</a>
         </div>
     </header>
@@ -303,77 +302,65 @@
                         e uso institucional.</p>
                 </div>
 
-                <div class="pricing-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; align-items: stretch;">
+                <div class="pricing-grid reveal delay-100">
 
-                    <div class="pricing-card"
-                        style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); background: var(--white); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s;">
-                        <h3 style="color: var(--primary); font-size: 1.2rem;">Ciclo 12 Meses</h3>
-                        <div style="font-size: 2.2rem; font-weight: 800; margin: 0.8rem 0;">R$ 217<span
-                                style="font-size: 0.9rem; color: var(--text-light); font-weight: 400;">/mês</span></div>
-                        <p style="font-size: 0.85rem; color: var(--text-light); flex-grow: 1;">Entrada facilitada para
-                            validação de tecnologia.</p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 1.2rem 0; text-align: left; font-size: 0.85rem; line-height: 1.6;">
-                            <li>✓ Calibração 0,7µm</li>
-                            <li>✓ Suporte via E-mail</li>
-                            <li>✓ Fiel Depositário</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/14A8wRd5e3ffcg28hKcV207" class="btn btn-outline"
-                            style="width: 100%; padding: 10px; font-size: 0.9rem;">Assinar 12 Meses</a>
-                    </div>
+                    <div class="pricing-grid">
+                        <div class="pricing-card standard">
+                            <h3 class="pricing-title">Ciclo 12 Meses</h3>
+                            <p class="pricing-subtitle">Entrada facilitada.</p>
+                            <div class="pricing-price">R$ 217<span>/mês</span></div>
+                            <p class="pricing-billing">Faturamento mensal</p>
+                            <ul class="pricing-features">
+                                <li>✓ Calibração 0,7µm</li>
+                                <li>✓ Suporte Técnico Catalucca</li>
+                                <li>✓ Condição de Fiel Depositário</li>
+                            </ul>
+                            <button class="btn-checkout pricing-btn-outline" data-plano="12_meses">Assinar 12
+                                Meses</button>
+                        </div>
 
-                    <div class="pricing-card"
-                        style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); background: var(--white); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s;">
-                        <h3 style="color: var(--primary); font-size: 1.2rem;">Ciclo 24 Meses</h3>
-                        <div style="font-size: 2.2rem; font-weight: 800; margin: 0.8rem 0;">R$ 197<span
-                                style="font-size: 0.9rem; color: var(--text-light); font-weight: 400;">/mês</span></div>
-                        <p style="font-size: 0.85rem; color: var(--text-light); flex-grow: 1;">Equilíbrio entre
-                            investimento e tempo de contrato.</p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 1.2rem 0; text-align: left; font-size: 0.85rem; line-height: 1.6;">
-                            <li>✓ Prioridade no Suporte</li>
-                            <li>✓ Certificação Semestral</li>
-                            <li>✓ Fiel Depositário</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/9B628te9i6rrgwiapScV208" class="btn btn-outline"
-                            style="width: 100%; padding: 10px; font-size: 0.9rem;">Assinar 24 Meses</a>
-                    </div>
+                        <div class="pricing-card standard">
+                            <h3 class="pricing-title">Ciclo 24 Meses</h3>
+                            <p class="pricing-subtitle">Equilíbrio e estabilidade.</p>
+                            <div class="pricing-price">R$ 197<span>/mês</span></div>
+                            <p class="pricing-billing">Faturamento mensal</p>
+                            <ul class="pricing-features">
+                                <li>✓ Calibração 0,7µm</li>
+                                <li>✓ Garantia de Reposição Técnica</li>
+                                <li>✓ Condição de Fiel Depositário</li>
+                            </ul>
+                            <button class="btn-checkout pricing-btn-outline" data-plano="24_meses">Assinar 24
+                                Meses</button>
+                        </div>
 
-                    <div class="pricing-card"
-                        style="border: 2px solid var(--accent); padding: 1.5rem; border-radius: var(--radius-lg); background: var(--white); text-align: center; position: relative; display: flex; flex-direction: column; transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 2;">
-                        <span
-                            style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-weight: bold; white-space: nowrap;">MELHOR
-                            CUSTO-BENEFÍCIO</span>
-                        <h3 style="color: var(--primary); font-size: 1.2rem;">Ciclo 36 meses</h3>
-                        <div style="font-size: 2.2rem; font-weight: 800; margin: 0.8rem 0;">R$ 177<span
-                                style="font-size: 0.9rem; color: var(--text-light); font-weight: 400;">/mês</span></div>
-                        <p style="font-size: 0.85rem; color: var(--text-light); flex-grow: 1;">A solução definitiva para
-                            escala institucional.</p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 1.2rem 0; text-align: left; font-size: 0.85rem; line-height: 1.6;">
-                            <li>✓ Menor Mensalidade</li>
-                            <li>✓ Hardware Replaced (V2)</li>
-                            <li>✓ Suporte VIP 24h</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/9B64gB1mwdTT93Qcy0cV209" class="btn btn-primary"
-                            style="width: 100%; padding: 10px; font-size: 0.9rem;">Assinar 36 meses</a>
-                    </div>
+                        <div class="pricing-card highlighted">
+                            <span class="pricing-tag">Melhor Custo-Benefício</span>
+                            <h3 class="pricing-title">Ciclo 48 Meses</h3>
+                            <p class="pricing-subtitle">Escala institucional.</p>
+                            <div class="pricing-price">R$ 177<span>/mês</span></div>
+                            <p class="pricing-billing">Faturamento mensal</p>
+                            <ul class="pricing-features">
+                                <li>✓ Menor Mensalidade</li>
+                                <li>✓ Garantia de Reposição Técnica</li>
+                                <li>✓ Condição de Fiel Depositário</li>
+                            </ul>
+                            <button class="btn-checkout pricing-btn-solid" data-plano="48_meses">Assinar 48
+                                Meses</button>
+                        </div>
 
-                    <div class="pricing-card"
-                        style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); background: var(--white); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s;">
-                        <h3 style="color: var(--primary); font-size: 1.2rem;">Venda Direta</h3>
-                        <div style="font-size: 2.2rem; font-weight: 800; margin: 0.8rem 0;">R$ 5.880</div>
-                        <p style="font-size: 0.85rem; color: var(--text-light); flex-grow: 1;">Aquisição permanente da
-                            unidade LABMOB™ PRO.</p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 1.2rem 0; text-align: left; font-size: 0.85rem; line-height: 1.6;">
-                            <li>✓ Propriedade Vitalícia</li>
-                            <li>✓ Certificado de Origem</li>
-                            <li>✓ Sem Taxas Mensais</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/28E8wRc1a8zz4NAbtWcV200" class="btn btn-outline"
-                            style="width: 100%; padding: 10px; font-size: 0.9rem;">Comprar Agora</a>
+                        <div class="pricing-card standard">
+                            <h3 class="pricing-title">Venda Direta</h3>
+                            <p class="pricing-subtitle">Propriedade vitalícia.</p>
+                            <div class="pricing-price">R$ 5.880</div>
+                            <p class="pricing-billing">Pagamento Único</p>
+                            <ul class="pricing-features">
+                                <li>✓ Propriedade Vitalícia</li>
+                                <li>✓ Certificado de Calibração</li>
+                                <li>✓ Sem Mensalidades</li>
+                            </ul>
+                            <button class="btn-checkout pricing-btn-outline" data-plano="venda_direta">Comprar
+                                Agora</button>
+                        </div>
                     </div>
                 </div>
 
