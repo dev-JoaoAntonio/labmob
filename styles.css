@@ -918,3 +918,8 @@ details[open] summary svg {
         transform: translateY(-8px);
     }
 }
+
+.logo-header{
+  height: 30px;
+  width: auto;
+}

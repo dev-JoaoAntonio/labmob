@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Lógica Segura de Checkout Stripe
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutButtons = document.querySelectorAll('.btn-checkout');
 
