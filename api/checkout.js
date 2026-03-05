@@ -39,6 +39,14 @@ export default async function handler(req, res) {
         const sessionConfig = {
             payment_method_types: ['card'],
             mode: plano.mode,
+            allow_promotion_codes: true,
+            phone_number_collection: {
+                enabled: true
+            },
+            billing_address_collection: 'required',
+            shipping_address_collection: {
+                allowed_countries: ['BR']
+            },
             line_items: [
                 {
                     price: plano.priceId,
