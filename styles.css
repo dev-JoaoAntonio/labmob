@@ -955,9 +955,8 @@ details[open] summary svg {
   height: 30px;
   width: auto;
 }
-
 .authority-marquee-section {
-  padding: 3rem 0;
+  padding: 1rem 0;
   background-color: transparent;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -985,14 +984,15 @@ details[open] summary svg {
 
 .marquee-track {
   display: flex;
-  align-items: center;
-  gap: 5rem;
   width: max-content;
   animation: marquee-scroll 35s linear infinite;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding-right: 5rem;
 }
 
 .marquee-item {
@@ -1019,28 +1019,17 @@ details[open] summary svg {
   }
 
   100% {
-    transform: translateX(calc(-50% - 2.5rem));
+    transform: translateX(-50%);
   }
 }
 
 @media (max-width: 768px) {
-  .marquee-track {
+  .marquee-group {
     gap: 3rem;
+    padding-right: 3rem;
   }
 
   .marquee-item {
     font-size: 1.4rem;
   }
-
-  @keyframes marquee-scroll {
-    100% {
-      transform: translateX(calc(-50% - 1.5rem));
-    }
-  }
-}
-
-.marquee-item:hover {
-    opacity: 1;
-    color: var(--white);
-    transform: scale(1.05);
 }
