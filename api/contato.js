@@ -1,35 +1,41 @@
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+
+const contatoSchema = z.object({
+    Nome: z.string().min(2).max(100),
+    Orgao: z.string().min(2).max(100).refine(val => !val.includes('@')),
+    Email: z.string().email().max(100),
+    Telefone: z.string().min(8).max(20),
+    _botcheck: z.string().optional()
+});
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Método não permitido' });
     }
 
-    const { Nome, Orgao, Email, Telefone, _botcheck } = req.body;
-
-    if (_botcheck) {
-        return res.status(200).json({ message: 'E-mail enviado com sucesso!' });
-    }
-
-    if (Orgao.includes('@')) {
-        return res.status(400).json({ error: 'Por favor, insira o nome do órgão corretamente.' });
-    }
-
-    const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: true,
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        }
-    });
-
     try {
+        const validatedData = contatoSchema.parse(req.body);
+        const { Nome, Orgao, Email, Telefone, _botcheck } = validatedData;
+
+        if (_botcheck) {
+            return res.status(200).json({ message: 'E-mail enviado com sucesso!' });
+        }
+
+        const transporter = nodemailer.createTransport({
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            secure: true,
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS
+            }
+        });
+
         await transporter.sendMail({
             from: process.env.SMTP_USER,
             to: 'suporte@catalucca.com.br',
-            subject: `🚨 Novo Estudo de Viabilidade: ${Orgao}`,
+            subject: `Novo Estudo de Viabilidade: ${Orgao}`,
             html: `
                 <div style="background-color: #f4f7f9; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                     <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #0066CC;">
@@ -81,7 +87,9 @@ export default async function handler(req, res) {
         
         res.status(200).json({ message: 'E-mail enviado com sucesso!' });
     } catch (error) {
-        console.error("Erro no envio do e-mail:", error);
+        if (error instanceof z.ZodError) {
+            return res.status(400).json({ error: 'Dados inválidos detectados.' });
+        }
         res.status(500).json({ error: 'Erro interno ao disparar e-mail.' });
     }
 }

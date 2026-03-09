@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "nodemailer": "^8.0.1",
-    "stripe": "^20.4.0"
+    "stripe": "^20.4.0",
+    "zod": "^4.3.6"
   }
 }

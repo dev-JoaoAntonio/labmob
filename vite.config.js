@@ -13,7 +13,6 @@ export default defineConfig({
         parceiros: resolve(__dirname, 'parceiros.html'),
         termos: resolve(__dirname, 'termos-de-licenciamento.html'),
         politicas: resolve(__dirname, 'politica-de-privacidade.html')
-        
       }
     }
   }

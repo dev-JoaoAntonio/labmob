@@ -39,6 +39,17 @@ export default async function handler(req, res) {
         const sessionConfig = {
             payment_method_types: ['card'],
             mode: plano.mode,
+            allow_promotion_codes: true,
+            phone_number_collection: {
+                enabled: true
+            },
+            billing_address_collection: 'required',
+            shipping_address_collection: {
+                allowed_countries: ['BR']
+            },
+            consent_collection: {
+                terms_of_service: 'required',
+            },
             line_items: [
                 {
                     price: plano.priceId,
@@ -70,7 +81,6 @@ export default async function handler(req, res) {
         
         res.status(200).json({ url: session.url });   
     } catch (error) {
-        console.error('Erro no Checkout:', error);
         res.status(500).json({ error: 'Erro interno ao processar comunicação com gateway.' });
     }
 }
