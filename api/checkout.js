@@ -55,12 +55,20 @@ export default async function handler(req, res) {
                     limite_meses: plano.meses
                 }
             };
+        } 
+        else if (plano.mode === 'payment') {
+            sessionConfig.payment_method_options = {
+                card: {
+                    installments: {
+                        enabled: true
+                    }
+                }
+            };
         }
 
         const session = await stripe.checkout.sessions.create(sessionConfig);
         
-        res.status(200).json({ url: session.url });
-        
+        res.status(200).json({ url: session.url });   
     } catch (error) {
         console.error('Erro no Checkout:', error);
         res.status(500).json({ error: 'Erro interno ao processar comunicação com gateway.' });
